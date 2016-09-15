@@ -162,16 +162,16 @@ function binarySearch(arr, target) {
 
 function mergeSort(arr) {
 
-  let midpoint = Math.floor(arr.length/2);
-
   if (arr.length === 1) {
     return arr;
   }
+  let midpoint = Math.floor(arr.length/2);
+
 
   let left_half = arr.slice(0, midpoint);
   let right_half = arr.slice(midpoint);
 
-  return mergeHelper(mergeSort(left_half), mergeSort(right_half));
+  mergeHelper(mergeSort(left_half), mergeSort(right_half));
 }
 
 function mergeHelper(left, right) {
@@ -179,11 +179,10 @@ function mergeHelper(left, right) {
 
     if (left[0] > right[0]) {
       result.push(right[0]);
-      result.push(left[0]);
     }
     else {
       result.push(left[0]);
-      result.push(right[0]);
     }
+
   return result;
 }
